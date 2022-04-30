@@ -1,4 +1,3 @@
-import kotlin.reflect.jvm.internal.impl.util.ValueParameterCountCheck.Equals
 import java.util.*
 
 fun main(args: Array<String>) {
@@ -8,19 +7,30 @@ fun main(args: Array<String>) {
 fun abc000X() {
     System.err.println("！！！！！！！！！！！テスト！！！！！！！！！")
 
-    val (L, R, C, D) = readLine()!!.split(" ").map { it.toLong() }
+    val N = readLine()!!
+    val As = readLine()!!.split(" ").map { it.toInt() }.sorted()
 
-    val CsIn = R / C - (L - 1) / C
-    val DsIn = R / D - (L - 1) / D
-    val CDsIn = R / lcm(listOf(C.toInt(), D.toInt())) - (L - 1) / lcm(listOf(C.toInt(), D.toInt()))
+    System.err.println(As)
 
-    if (C != D)
-        println(R - D - (CsIn + DsIn - CDsIn))
-    else
-        println(R - D - CsIn)
+    val sets = mutableListOf<kakeru>()
+    for (k in 0 until As.count() - 2)
+        for (j in k + 1 until As.count() - 1)
+            for (i in j + 1 until As.count())
+                if (As[i] == As[j] * As[k])
+                    sets.add(kakeru(As[i], As[j], As[k]))
+
+
+
+    sets.forEach { System.err.println(it) }
+
+//    System.err.println(Ws)
+
+    println(sets.count() * 2)
 
 }
 
+data class kakeru(val i: Int, val j: Int, val k: Int)
+data class waru(val i: Int, val j: Int, val k: Int)
 
 fun ng() {
     println("No")

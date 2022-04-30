@@ -10,7 +10,8 @@ class MainTest {
     @Test
     fun 入力例_1() {
         val input =
-            "4 9 2 3";
+            "3" + System.lineSeparator() +
+                    "6 2 3";
         val output =
             "2";
 
@@ -20,9 +21,10 @@ class MainTest {
     @Test
     fun 入力例_2() {
         val input =
-            "10 40 6 8";
+            "1" + System.lineSeparator() +
+                    "2";
         val output =
-            "23";
+            "0";
 
         assertIO(input, output);
     }
@@ -30,9 +32,10 @@ class MainTest {
     @Test
     fun 入力例_3() {
         val input =
-            "314159265358979323 846264338327950288 419716939 937510582";
+            "10" + System.lineSeparator() +
+                    "1 3 2 4 6 8 2 2 3 7";
         val output =
-            "532105071133627368";
+            "62";
 
         assertIO(input, output);
     }

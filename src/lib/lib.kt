@@ -129,3 +129,17 @@ fun lcm(list: List<Int>): Int {
     // 最小公倍数を返す
     return stack.pop()
 }
+
+class MyStack<T> {
+    private val values: MutableList<T> = mutableListOf()
+
+    public fun push(source: T) {
+        this.values.add(source)
+    }
+
+    public fun pop(): T {
+        val ret = values.elementAt(values.size - 1)
+        values.removeAt(values.size - 1)
+        return ret
+    }
+}
